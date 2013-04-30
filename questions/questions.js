@@ -22,14 +22,30 @@ if (Meteor.isClient) {
       $('#remaining').html(MAX_CHARS - $('#tweet-body').val().length);
     }
   });
-
-  Template.list.events({
-    'click .que-remove': function(event) {
-      Questions.update({$que-remove: {score: 1}});
+  
+  Template.question.selected = function () {
+    return Session.equals("selected_question", this._id) ? "selected" : '';
+  };
+  
+  Template.question.events({
+    'click': function () {
+      Session.set("selected_question", this._id);
     }
   });
 
-  Template.list.questions = Questions.find({}, {sort: {score: -1}});
+  Template.list.events({
+    'click .icon-thumbs-up': function(event) {
+      Questions.update(Session.get("selected_question"), {$inc: {score: 1}});
+    }
+  });
+  Template.list.events({
+    'click .icon-thumbs-down': function(event) {
+      Questions.update(Session.get("selected_question"), {$inc: {score: -1}});
+    }
+  });
+  
+
+  Template.list.questions = Questions.find({}, {sort: {score: -1, created_at: -1}});
 }
 
 if (Meteor.isServer) {

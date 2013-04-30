@@ -38,29 +38,20 @@
 </template>
 
 <template name="list">
-  <table class="span6">
+  <table class="span7">
     <tbody>
       {{#each questions}}
-        <tr>
-          <td>
-            {{body}}
-          </td>
-		  <td class = "score">
-			{{score}}
-			</td>
-          <td class="que-remove">
-            <i class="icon-thumbs-up"></i>
-          </td>
-        </tr>
+        {{> question}}
       {{/each}}
     </tbody>
   </table>
 </template>
 
 <template name="question">
-  <div id="question">
+  <div id="question {{selected}}" >
     <span class ="que">{{body}} </span>
 	<span class ="score">{{score}} </span>
-	<span class ="up">
-	
+	<span <i class="icon-thumbs-up"></i></span>
+	<span <i class="icon-thumbs-down"></i></span>
+  </div>
 </template>
