@@ -1,13 +1,66 @@
 <head>
-  <title>Questions for Lecture</title>
+  <title>Ask a lecturer</title>
 </head>
 
 <body>
-  {{> hello}}
+  <header class="navbar navbar-fixed-top">
+    <nav class="navbar-inner">
+      <div class="container">
+      </div>
+    </nav>
+  </header>
+  <div id="main" role="main">
+    <div class="container">
+      <div class="content">
+        <div class="row">
+          <div class="span12">
+            {{> compose}}
+            {{> list}}
+          </div>
+        </div>
+        <footer>
+        </footer>
+      </div>
+    </div> <!--! end of .container -->
+  </div> <!--! end of #main -->
+
 </body>
 
-<template name="hello">
-  <h1>Ask your Lecturer some questions</h1>
-  {{greeting}}
-  <input type="button" value="Click" class="btn btn-primary" />
+<template name="compose">
+  <form id="new-que">
+    <textarea class="field span5"
+              id="que-body"
+              rows="2"
+              placeholder="Ask your lecturer a question ..."
+              required></textarea>
+    <input type="submit" value="Create" class="btn btn-success">
+  </form>
+</template>
+
+<template name="list">
+  <table class="span6">
+    <tbody>
+      {{#each questions}}
+        <tr>
+          <td>
+            {{body}}
+          </td>
+		  <td class = "score">
+			{{score}}
+			</td>
+          <td class="que-remove">
+            <i class="icon-thumbs-up"></i>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</template>
+
+<template name="question">
+  <div id="question">
+    <span class ="que">{{body}} </span>
+	<span class ="score">{{score}} </span>
+	<span class ="up">
+	
 </template>
