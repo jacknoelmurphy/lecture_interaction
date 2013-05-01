@@ -38,6 +38,12 @@ if (Meteor.isClient) {
     }
   });
   
+  Template.list.events({
+    'click .icon-remove': function(event) {
+      Questions.remove(Session.get("selected_question"));
+    }
+  });
+  
   Template.list.questions = Questions.find({}, {sort: {score: -1, created_at: -1}});
 }
 

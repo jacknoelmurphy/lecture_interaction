@@ -3,10 +3,14 @@
 
 
 body { 
-	padding-top: 60px; 
+	padding-top: 100px; 
 	background-color:#46483e;
 
 }
+
+h3 {
+	text-align: center;
+)
 
 #new-que textarea {
     margin: 0;

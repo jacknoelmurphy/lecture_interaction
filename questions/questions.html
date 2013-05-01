@@ -6,8 +6,10 @@
   <header class="navbar navbar-fixed-top">
     <nav class="navbar-inner">
       <div class="container">
-		{{loginButtons align="right"}}
+		{{loginButtons align="center"}}
+		<h3> Lecture Question Board</h3> 
       </div>
+	  
     </nav>
   </header>
   <div id="main" role="main">
@@ -15,15 +17,18 @@
       <div class="content">
         <div class="row">
           <div class="span12">
+			{{#if currentUser}}
             {{> compose}}
+			{{/if}}
             {{> list}}
           </div>
-        </div>
         <footer>
         </footer>
       </div>
     </div> <!--! end of .container -->
   </div> <!--! end of #main -->
+  </div>
+        
 </body>
 
 <template name="compose">
@@ -53,12 +58,24 @@
 
 <template name="question">
   <div id="question {{selected}}" >
+	<table class ="que">
+	<tr>
+		<td>
     <span <i class="icon-user"></i></span>
     <span class ="que" style="color:#cad8ba">{{body}} </span>
+		</td>
+	</tr>
+	<tr>
+		<td>
+	{{#if currentUser}}
 	<div id="votes" >
 		<span <i class="icon-thumbs-up"></i></span>
-		<strong><span class ="score" style="color:green">{{score}}</span> </strong>
+		<strong><span class ="score" style="color:green">{{score}}</span></strong>
 		<span <i class="icon-thumbs-down"></i></span>
+		<span <i class="icon-remove"></i></span>
 		</div>
+		</td>
+	{{/if}}
+	</tr>
   </div>
 </template>
