@@ -1,7 +1,6 @@
 Questions = new Meteor.Collection("questions");
 
 if (Meteor.isClient) {
-  var MAX_CHARS = 140;
 
   Template.compose.events({
     'submit form': function (event) {
@@ -14,12 +13,6 @@ if (Meteor.isClient) {
 		score: $score,
         created_at: Date()
       });
-      $body.val('');
-      $('#remaining').html(MAX_CHARS);
-    },
-
-    'keyup #que-body': function() {
-      $('#remaining').html(MAX_CHARS - $('#tweet-body').val().length);
     }
   });
   
@@ -38,13 +31,13 @@ if (Meteor.isClient) {
       Questions.update(Session.get("selected_question"), {$inc: {score: 1}});
     }
   });
+  
   Template.list.events({
     'click .icon-thumbs-down': function(event) {
       Questions.update(Session.get("selected_question"), {$inc: {score: -1}});
     }
   });
   
-
   Template.list.questions = Questions.find({}, {sort: {score: -1, created_at: -1}});
 }
 

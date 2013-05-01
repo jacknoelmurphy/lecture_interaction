@@ -24,12 +24,11 @@
       </div>
     </div> <!--! end of .container -->
   </div> <!--! end of #main -->
-
 </body>
 
 <template name="compose">
   <form id="new-que">
-    <textarea class="field span5"
+    <textarea class="field span6"
               id="que-body"
               rows="2"
               placeholder="Ask your lecturer a question ..."
@@ -39,10 +38,14 @@
 </template>
 
 <template name="list">
-  <table class="span7">
+  <table class="table">
     <tbody>
       {{#each questions}}
+	  <tr class="row">
+		<td>
         {{> question}}
+		</td>
+		</tr>
       {{/each}}
     </tbody>
   </table>
@@ -50,9 +53,12 @@
 
 <template name="question">
   <div id="question {{selected}}" >
-    <span class ="que">{{body}} </span>
-	<span class ="score">{{score}} </span>
-	<span <i class="icon-thumbs-up"></i></span>
-	<span <i class="icon-thumbs-down"></i></span>
+    <span <i class="icon-user"></i></span>
+    <span class ="que" style="color:#cad8ba">{{body}} </span>
+	<div id="votes" >
+		<span <i class="icon-thumbs-up"></i></span>
+		<strong><span class ="score" style="color:green">{{score}}</span> </strong>
+		<span <i class="icon-thumbs-down"></i></span>
+		</div>
   </div>
 </template>
