@@ -9,22 +9,18 @@
 </body>
 
 <template name="header">
-	<div class="navbar navbar-inverse navbar-fixed-top">
-		<div class="navbar-inner">
-			<ul class="nav">
-				{{loginButtons align="center"}}
-				<a class="brand" href="#">Lecture Question Board</a>
-			</ul>
-		</div>
-	</div>
+	<div id="header" align="center">
+	<h1> Lecture Question Board </h1>
+	{{loginButtons}}
 </template>
 
 <template name="main">
 	<div id="main" role="main" align="center">
 		{{#if currentUser}}
 		{{> compose}}
-		{{> list}}
 		{{/if}}
+		{{> list}}
+		
 	</div>
 </template>
 
@@ -49,7 +45,6 @@
 
 <template name="question">
   <div id="question {{selected}}" >
-    <span <i class="icon-user"></i></span>
     <span class ="que" style="color:#cad8ba">{{body}} </span>
 	{{#if currentUser}}
 	<div id="votes" >
