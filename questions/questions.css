@@ -1,25 +1,27 @@
 /* CSS declarations go here */
+@import url(http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo);
 
-
-
+header {
+}
 body { 
-	padding-top: 100px; 
-	background-color:#46483e;
-
+	padding-top: 120px; 
+	background: transparent url('background.jpg');
 }
 
-h3 {
+
+h2 {
 	text-align: center;
+	font-family: 'Swanky and Moo Moo', cursive;
 )
 
 #new-que textarea {
     margin: 0;
     padding: 0;
     margin-right: 15px;
+	
 }
 #new-que {
     margin-left: 20px;
-	
 }
 	
 }
@@ -31,3 +33,20 @@ h3 {
 #tr {
 	background-color:cad8ba;
 }
+
+.question {
+
+	position: relative;
+	width: 500px;
+	height: 80px;
+	padding: 0px;
+	margin-bottom: 25px;
+	background: #D2D2E0;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	
+}
+
+}
+

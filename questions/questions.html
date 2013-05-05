@@ -1,29 +1,29 @@
 <head>
   <title>Ask a lecturer</title>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
 <body>
+
   <header class="navbar navbar-fixed-top">
     <nav class="navbar-inner">
       <div class="container">
 		{{loginButtons align="center"}}
-		<h3> Lecture Question Board</h3> 
+		<h2> Lecture Question Board</h2> 
       </div>
 	  
     </nav>
   </header>
   <div id="main" role="main">
     <div class="container">
-      <div class="content">
-        <div class="row">
-          <div class="span12">
+      <div class="content" align="center">
+        <div class="row" >
+          <div class="" >
 			{{#if currentUser}}
             {{> compose}}
 			{{/if}}
             {{> list}}
           </div>
-        <footer>
-        </footer>
       </div>
     </div> <!--! end of .container -->
   </div> <!--! end of #main -->
@@ -33,40 +33,27 @@
 
 <template name="compose">
   <form id="new-que">
-    <textarea class="field span6"
+    <textarea class="field"
               id="que-body"
               rows="2"
               placeholder="Ask your lecturer a question ..."
               required></textarea>
+	<div class="row">
     <input type="submit" value="Create" class="btn btn-success">
+	</div>
   </form>
 </template>
 
 <template name="list">
-  <table class="table">
-    <tbody>
       {{#each questions}}
-	  <tr class="row">
-		<td>
         {{> question}}
-		</td>
-		</tr>
       {{/each}}
-    </tbody>
-  </table>
 </template>
 
 <template name="question">
   <div id="question {{selected}}" >
-	<table class ="que">
-	<tr>
-		<td>
     <span <i class="icon-user"></i></span>
     <span class ="que" style="color:#cad8ba">{{body}} </span>
-		</td>
-	</tr>
-	<tr>
-		<td>
 	{{#if currentUser}}
 	<div id="votes" >
 		<span <i class="icon-thumbs-up"></i></span>
@@ -74,8 +61,6 @@
 		<span <i class="icon-thumbs-down"></i></span>
 		<span <i class="icon-remove"></i></span>
 		</div>
-		</td>
 	{{/if}}
-	</tr>
   </div>
 </template>
