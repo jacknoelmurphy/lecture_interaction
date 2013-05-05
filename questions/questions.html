@@ -4,32 +4,29 @@
 </head>
 
 <body>
-
-  <header class="navbar navbar-fixed-top">
-    <nav class="navbar-inner">
-      <div class="container">
-		{{loginButtons align="center"}}
-		<h2> Lecture Question Board</h2> 
-      </div>
-	  
-    </nav>
-  </header>
-  <div id="main" role="main">
-    <div class="container">
-      <div class="content" align="center">
-        <div class="row" >
-          <div class="" >
-			{{#if currentUser}}
-            {{> compose}}
-			{{/if}}
-            {{> list}}
-          </div>
-      </div>
-    </div> <!--! end of .container -->
-  </div> <!--! end of #main -->
-  </div>
-        
+  {{> header}}
+  {{> main}}
 </body>
+
+<template name="header">
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="navbar-inner">
+			<ul class="nav">
+				{{loginButtons align="center"}}
+				<a class="brand" href="#">Lecture Question Board</a>
+			</ul>
+		</div>
+	</div>
+</template>
+
+<template name="main">
+	<div id="main" role="main" align="center">
+		{{#if currentUser}}
+		{{> compose}}
+		{{> list}}
+		{{/if}}
+	</div>
+</template>
 
 <template name="compose">
   <form id="new-que">

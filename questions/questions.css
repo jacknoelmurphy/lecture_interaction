@@ -1,17 +1,17 @@
 /* CSS declarations go here */
-@import url(http://fonts.googleapis.com/css?family=Swanky+and+Moo+Moo);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Slab);
 
 header {
 }
 body { 
 	padding-top: 120px; 
-	background: transparent url('background.jpg');
+	background: #4099FF;
 }
 
 
 h2 {
 	text-align: center;
-	font-family: 'Swanky and Moo Moo', cursive;
+	font-family: 'Roboto Slab', cursive;
 )
 
 #new-que textarea {
