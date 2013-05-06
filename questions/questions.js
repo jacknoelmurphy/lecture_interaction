@@ -1,6 +1,9 @@
-Questions = new Meteor.Collection("questions");
 
 if (Meteor.isClient) {
+
+  Meteor.startup(function () {
+    Meteor.subscribe("ques");
+  });
 
   Template.compose.events({
     'submit form': function (event) {
@@ -9,6 +12,7 @@ if (Meteor.isClient) {
       event.preventDefault();
 
       Questions.insert({
+		owner: Meteor.userId(),
         body: $body.val(),
 		score: $score,
         created_at: Date()
@@ -28,6 +32,11 @@ if (Meteor.isClient) {
     }
 	
   });
+  
+  Template.question.que = function(){
+	return Questions.findOne(Session.get("selected"));
+  };
+  
 	// Deals with up-vote, down-vote, remove buttons
   Template.list.events({
     'click .icon-thumbs-up': function(event) {
@@ -47,6 +56,10 @@ if (Meteor.isClient) {
 
 if (Meteor.isServer) {
   Meteor.startup(function () {
-    // code to run on server at startup
+    Meteor.publish("ques", function(){
+		return Questions.find({}, {
+			fields:{ }
+		})
+	});
   });
 }

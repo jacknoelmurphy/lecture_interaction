@@ -14,7 +14,7 @@ h1 {
 }
 
 .question{
-	position: relative;
+	position: absolute;
 	width: 400px;
 	height: 80px;
 	padding: 0px;
@@ -23,8 +23,8 @@ h1 {
 	-webkit-border-radius: 15px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	vertical-align: middle; 
-	
+	vertical-align: middle;
+	left: 35%;
 }
 
 .question:after {
@@ -41,19 +41,18 @@ h1 {
 }
 .votes{
 	position: relative;
-	right: 250px;
-	top: -70px;
+	right: -275px;
+	top: 20px;
 }
 
 .score{
 
 	position: relative;
-	right: -250px;
-	top: -115px;
-	font-size: 30pt;
+	right: -240px;
+	top: -30px;
+	font-size: 25pt;
 
 }
-
 
 .login{
 	position: relative;
