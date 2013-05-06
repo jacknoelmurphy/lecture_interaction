@@ -1,6 +1,6 @@
 // on the client
 if (Meteor.isClient) {
-
+  //allows client to subscribe to list of questions published by server
   Meteor.startup(function () {
     Meteor.subscribe("ques");
   });
@@ -65,6 +65,7 @@ if (Meteor.isClient) {
 // on the server
 if (Meteor.isServer) {
   Meteor.startup(function () {
+	//Publishes the list of questions so the client can subscribe to them
     Meteor.publish("ques", function(){
 		return Questions.find({}, {
 			fields:{ }
