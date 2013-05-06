@@ -6,8 +6,8 @@ Questions.allow({
 		return userId && que.owner === userId;
 	},
 	
-	update: function(id, ques, fields, modifier){
-		return true;
+	update: function(userId, ques, fields, modifier){
+		return userId;
 	},
 	
 	remove: function(id, que){

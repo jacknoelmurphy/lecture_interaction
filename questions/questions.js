@@ -10,7 +10,12 @@ if (Meteor.isClient) {
       var $body = $('#que-body');
 	  var $score = 1;
       event.preventDefault();
-
+	
+	  if(!Meteor.userId()) {
+		alert("You must login to post a question.");
+		return;
+	  }
+	
       Questions.insert({
 		owner: Meteor.userId(),
         body: $body.val(),

@@ -21,9 +21,7 @@
 
 <template name="main">
 	<div id="main" role="main" align="center">
-		{{#if currentUser}}
 		{{> compose}}
-		{{/if}}
 		{{> list}}
 	</div>
 </template>
@@ -44,6 +42,7 @@
 <template name="list">
       {{#each questions}}
         {{> question}}
+		</br>
       {{/each}}
 </template>
 
@@ -51,14 +50,12 @@
   <div class="question {{selected}}" >
 	{{body}}
   </div>
-	{{#if currentUser}}
-	<div class="votes">
-		<i class="icon-thumbs-up"></i></br>
-		<i class="icon-thumbs-down"></i></br>
-		<i class="icon-remove"></i></br>
-	</div>
-	{{/if}}
-	<div class="score">
-		<strong>{{score}}</strong></br>
-	<div>
+  <div class="votes">
+	<i class="icon-thumbs-up"></i></br>
+	<i class="icon-thumbs-down"></i></br>
+	<i class="icon-remove"></i></br>
+  </div>
+  <div class="score">
+	<strong>{{score}}</strong></br>
+  <div>
 </template>
