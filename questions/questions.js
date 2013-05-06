@@ -13,6 +13,8 @@ if (Meteor.isClient) {
 		score: $score,
         created_at: Date()
       });
+	  
+	  $body.val('');
     }
   });
   
@@ -24,25 +26,21 @@ if (Meteor.isClient) {
     'click': function () {
       Session.set("selected_question", this._id);
     }
+	
   });
-
+	// Deals with up-vote, down-vote, remove buttons
   Template.list.events({
     'click .icon-thumbs-up': function(event) {
       Questions.update(Session.get("selected_question"), {$inc: {score: 1}});
-    }
-  });
-  
-  Template.list.events({
-    'click .icon-thumbs-down': function(event) {
+    },
+	'click .icon-thumbs-down': function(event) {
       Questions.update(Session.get("selected_question"), {$inc: {score: -1}});
-    }
-  });
-  
-  Template.list.events({
-    'click .icon-remove': function(event) {
+	},
+	'click .icon-remove': function(event) {
       Questions.remove(Session.get("selected_question"));
     }
   });
+  
   
   Template.list.questions = Questions.find({}, {sort: {score: -1, created_at: -1}});
 }

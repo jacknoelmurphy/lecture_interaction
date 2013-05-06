@@ -3,7 +3,7 @@
 
 textarea{resize: none}
 body { 
-
+	margin-top: 5px;
 	background: #4099FF;
 }
 
@@ -11,34 +11,52 @@ h1 {
 	text-align: center;
 	font-family: 'Satisfy', cursive;
 	margin: 50px 30px 0px 30px;
-)
-
-}
-#tbody {
-	border-style:solid;
-	border-width:5px;
 }
 
-#tr {
-	background-color:cad8ba;
-}
-
-.question {
-
-	position:relative;
-	padding:15px;
-	margin:1em 0 3em;
-	color:#000;
-	background:#f3961c; 
-	background:-webkit-gradient(linear, 0 0, 0 100%, from(#f9d835), to(#f3961c));
-	background:-moz-linear-gradient(#f9d835, #f3961c);
-	background:-o-linear-gradient(#f9d835, #f3961c);
-	background:linear-gradient(#f9d835, #f3961c);
-	-webkit-border-radius:10px;
-	-moz-border-radius:10px;
-	border-radius:10px;
+.question{
+	position: relative;
+	width: 400px;
+	height: 80px;
+	padding: 0px;
+	margin-bottom: 5px;
+	background: #D2D2E0;
+	-webkit-border-radius: 15px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	vertical-align: middle; 
 	
 }
 
+.question:after {
+	content: "";
+	position: absolute;
+	top: 20px;
+	right: -30px;
+	border-style: solid;
+	border-width: 20px 0 20px 30px;
+	border-color: transparent #D2D2E0;
+	display: block;
+	width: 0;
+	z-index: 1;
+}
+.votes{
+	position: relative;
+	right: 250px;
+	top: -70px;
 }
 
+.score{
+
+	position: relative;
+	right: -250px;
+	top: -115px;
+	font-size: 30pt;
+
+}
+
+
+.login{
+	position: relative;
+	left: 1000px;
+	top: 6px;
+}
